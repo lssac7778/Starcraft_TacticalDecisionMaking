@@ -1,0 +1,133 @@
+syntax = "proto2";
+
+package TacticalData;
+
+message State{
+	repeated InfluenceMap m_influence_map_list = 1;
+	required OutputType m_outputType = 2;
+
+	enum OutputType
+	{
+		Ally_MainArmy = 0; 
+		Ally_Base = 1;
+		Ally_Second = 2;
+		Ally_Others = 3;
+		Enemy_Base = 4;
+		Enemy_Second = 5;
+		Enemy_Others = 6;
+		Enemy_MainArmy = 7;
+	}
+}
+
+message InfluenceMap{
+	required DoubleMatrix m_matrix = 1;
+	required InfluenceMapType m_influence_map_type = 2;
+
+	enum InfluenceMapType{
+		Enemy_Unit_Protoss_Archon = 0;
+		Enemy_Unit_Protoss_Dark_Templar = 1;
+		Enemy_Unit_Protoss_Dragoon = 2;
+		Enemy_Unit_Protoss_High_Templar = 3;
+		Enemy_Unit_Protoss_Probe = 4;
+		Enemy_Unit_Protoss_Reaver = 5;
+		Enemy_Unit_Protoss_Zealot = 6;
+		Enemy_Unit_Protoss_Arbiter = 7;
+		Enemy_Unit_Protoss_Carrier = 8;
+		Enemy_Unit_Protoss_Corsair = 9;
+		Enemy_Unit_Protoss_Observer = 10;
+		Enemy_Unit_Protoss_Shuttle = 11;
+		Enemy_Unit_Terran_Firebat = 12;
+		Enemy_Unit_Terran_Goliath = 13;
+		Enemy_Unit_Terran_Marine = 14;
+		Enemy_Unit_Terran_Medic = 15;
+		Enemy_Unit_Terran_SCV = 16;
+		Enemy_Unit_Terran_Siege_Tank_Tank_Mode = 17;
+		Enemy_Unit_Terran_Vulture = 18;
+		Enemy_Unit_Terran_Spider_Mine = 19;
+		Enemy_Unit_Terran_Battlecruiser = 20;
+		Enemy_Unit_Terran_Dropship = 21;
+		Enemy_Unit_Terran_Science_Vessel = 22;
+		Enemy_Unit_Terran_Valkyrie = 23;
+		Enemy_Unit_Terran_Wraith = 24;
+		Enemy_Unit_Zerg_Defiler = 25;
+		Enemy_Unit_Zerg_Drone = 26;
+		Enemy_Unit_Zerg_Hydralisk = 27;
+		Enemy_Unit_Zerg_Lurker = 28;
+		Enemy_Unit_Zerg_Ultralisk = 29;
+		Enemy_Unit_Zerg_Zergling = 30;
+		Enemy_Unit_Zerg_Guardian = 31;
+		Enemy_Unit_Zerg_Mutalisk = 32;
+		Enemy_Unit_Zerg_Overload = 33;
+		Enemy_Unit_Zerg_Scourge = 34;
+		Enemy_Building_Base = 35;
+		Enemy_Building_Defense = 36;
+		Enemy_Building_Others = 37;
+		Ally_Unit_Protoss_Archon = 38;
+		Ally_Unit_Protoss_Dark_Templar = 39;
+		Ally_Unit_Protoss_Dragoon = 40;
+		Ally_Unit_Protoss_High_Templar = 41;
+		Ally_Unit_Protoss_Probe = 42;
+		Ally_Unit_Protoss_Reaver = 43;
+		Ally_Unit_Protoss_Zealot = 44;
+		Ally_Unit_Protoss_Arbiter = 45;
+		Ally_Unit_Protoss_Carrier = 46;
+		Ally_Unit_Protoss_Corsair = 47;
+		Ally_Unit_Protoss_Observer = 48;
+		Ally_Unit_Protoss_Shuttle = 49;
+		Ally_Unit_Terran_Firebat = 50;
+		Ally_Unit_Terran_Goliath = 51;
+		Ally_Unit_Terran_Marine = 52;
+		Ally_Unit_Terran_Medic = 53;
+		Ally_Unit_Terran_SCV = 54;
+		Ally_Unit_Terran_Siege_Tank_Tank_Mode = 55;
+		Ally_Unit_Terran_Vulture = 56;
+		Ally_Unit_Terran_Spider_Mine = 57;
+		Ally_Unit_Terran_Battlecruiser = 58;
+		Ally_Unit_Terran_Dropship = 59;
+		Ally_Unit_Terran_Science_Vessel = 60;
+		Ally_Unit_Terran_Valkyrie = 61;
+		Ally_Unit_Terran_Wraith = 62;
+		Ally_Unit_Zerg_Defiler = 63;
+		Ally_Unit_Zerg_Drone = 64;
+		Ally_Unit_Zerg_Hydralisk = 65;
+		Ally_Unit_Zerg_Lurker = 66;
+		Ally_Unit_Zerg_Ultralisk = 67;
+		Ally_Unit_Zerg_Zergling = 68;
+		Ally_Unit_Zerg_Guardian = 69;
+		Ally_Unit_Zerg_Mutalisk = 70;
+		Ally_Unit_Zerg_Overload = 71;
+		Ally_Unit_Zerg_Scourge = 72;
+		Ally_Building_Base = 73;
+		Ally_Building_Defense = 74;
+		Ally_Building_Others = 75;
+		Ally_Minerals = 76;
+		Ally_Gas = 77;
+		Ally_Population = 78;
+
+		Ally_Race_Protoss = 79;
+		Ally_Race_Terran = 80;
+		Ally_Race_Zerg = 81;
+		Enemy_Race_Protoss = 82;
+		Enemy_Race_Terran = 83;
+		Enemy_Race_Zerg = 84;
+
+		Game_Time = 85;
+
+		Terrain_Plain = 86;
+		Terrain_Hill = 87;
+		Terrain_Sky = 88;
+	}
+
+	message DoubleMatrix {
+		required uint32 rows = 1;
+		required uint32 cols = 2;
+		repeated int32 data = 3 [packed=true];
+	}
+}
+
+message ProtoData{
+	repeated State state = 1;
+}
+
+
+
